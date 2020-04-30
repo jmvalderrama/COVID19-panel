@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  justify-content: center;
+  padding: 140px 0px 0px 0px;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-header,
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.example-header-image {
+  // background-image: url('../../../assets/chili.png');
+  background-size: cover;
+}
+
+.login-button {
+  background-color: #53c96e;
+}

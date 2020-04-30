@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "covid-app-reports": {
+      "hosting": {
+        "covid-app-reports": [
+          "covid-app-reports"
+        ]
+      }
+    }
+  }
+}

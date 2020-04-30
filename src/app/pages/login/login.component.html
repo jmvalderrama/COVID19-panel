@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Información COVID-19</mat-card-title>
+    <mat-card-subtitle>Cifras a nivel global respecto al coronavirus</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="loginForm">
+      <p>
+        <mat-form-field>
+          <mat-icon matSuffix>face</mat-icon>
+          <input type="text" matInput placeholder="Usuario" formControlName="username">
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field>
+          <mat-icon matSuffix>vpn_key</mat-icon>
+          <input type="password" matInput placeholder="Contraseña" formControlName="password">
+        </mat-form-field>
+      </p>
+      <div class="button">
+        <button mat-button (click)="login()" class="login-button" [disabled]="isLoading">
+          <span>{{ btnText }}</span>
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-progress-bar *ngIf="isLoading" mode="indeterminate" color="warn"></mat-progress-bar>
+</mat-card>

@@ -1,0 +1,60 @@
+<div class="global-tab-container">
+  <div *ngIf="!isLoaded; else elseBlock">
+    <mat-spinner class="global-tab-spinner" ></mat-spinner>
+  </div>
+  <ng-template #elseBlock>
+    <mat-card style="margin-bottom: 10px;">
+      <mat-card-header>
+        <mat-card-title>Situación Global COVID-19</mat-card-title>
+        <mat-card-subtitle>Username</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          Aquí puedes detallar el panorama global con una pequeña lista sobre la información respecto a los 10
+          paises que presentan mayor número de casos. Dichas cifras se encuentran al día y puedes actualizarlas de forma periódica pulsando 
+          el boton de "Actualizar datos". 
+        </p>
+      </mat-card-content>
+      <mat-card-actions >
+        <button 
+          mat-raised-button
+          style="margin-bottom: 6px; margin-left: 6;"
+          color="primary" 
+          (click)="reload()" 
+          [disabled]="isReloading">
+          {{ isReloading ? 'Actualizando...' : 'Actualizar datos' }}
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <mat-progress-bar *ngIf="isReloading" mode="indeterminate"></mat-progress-bar>
+    <div id="countries-information" class="global-tab-countries">
+      <mat-accordion>
+        <mat-expansion-panel 
+          *ngFor="let country of countries; let i = index"
+          [disabled]="isReloading">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <div style="margin-top: 15px;">
+                <img [src]="country.countryInfo.flag" width="40" height="25" />
+              </div>
+            </mat-panel-title>
+            <mat-panel-description>
+              <h4>{{ i + 1 }}. {{ country.country }}</h4>
+              <!-- <div style="text-align: right; width: 100%;"></div> -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <strong>Última actualización: {{ country.updatedAt }}</strong>
+            </mat-list-item>
+            <hr>
+            <mat-list-item role="listitem">Casos confirmados: {{ country.cases | number }}</mat-list-item>
+            <mat-list-item role="listitem">Muertos: {{ country.deaths | number }}</mat-list-item>
+            <mat-list-item role="listitem">Recuperados: {{ country.recovered | number }}</mat-list-item>
+            <mat-list-item role="listitem">Pruebas realizadas: {{ country.tests | number }}</mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>  
+    </div>
+  </ng-template>
+</div>

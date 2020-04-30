@@ -1,0 +1,46 @@
+<div class="local-tab-container">
+  <mat-card *ngIf="country != null || country != undefined">
+    <mat-card-header>
+      <div>
+        <img [src]="country.countryInfo.flag" width="60" height="45" />
+      </div>
+      <mat-card-title>{{ country.country }}</mat-card-title>
+      <mat-card-subtitle>Cifras sobre coronavirus</mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item>
+          <mat-icon mat-list-icon>check</mat-icon>
+          <h4 mat-line>Casos confirmados</h4>
+          <p mat-line>{{ country.cases | number }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>folder</mat-icon>
+          <h4 mat-line>Muertos</h4>
+          <p mat-line>{{ country.deaths | number }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>sentiment_satisfied_alt</mat-icon>
+          <h4 mat-line>Recuperados</h4>
+          <p mat-line>{{ country.recovered | number }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>emoji_transportation</mat-icon>
+          <h4 mat-line>UCI (Cuidados intensivos)</h4>
+          <p mat-line>{{ country.critical | number }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>group</mat-icon>
+          <h4 mat-line>Activos</h4>
+          <p mat-line>{{ country.active | number }}</p>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon mat-list-icon>search</mat-icon>
+          <h4 mat-line>Pruebas realizadas</h4>
+          <p mat-line>{{ country.tests | number }}</p>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

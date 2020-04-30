@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Información COVID-19</span>
+    <span class="example-spacer"></span>
+    <button
+      (click)="logout()"
+      mat-icon-button 
+      aria-label="Example icon-button with a heart icon">
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-tab-group mat-align-tabs="center">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">public</mat-icon>
+      <span>Global</span>
+    </ng-template>
+    <div>
+      <home-global-tab></home-global-tab>
+    </div>
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">home</mat-icon>
+      Local
+    </ng-template>
+    <home-local-tab></home-local-tab> 
+  </mat-tab>
+  <!-- <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">search</mat-icon>
+      Búsqueda
+    </ng-template>
+    País actual 
+  </mat-tab> -->
+</mat-tab-group>
